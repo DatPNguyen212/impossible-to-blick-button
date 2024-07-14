@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --button-background-color: linear-gradient(to right, #ff0084, #bb00ef);
+  --button-width: 200px;
+  --button-height: 50px;
+  --body-background-color: rgba(128, 128, 128, 0.2);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: var(--body-background-color);
+}
+
+.button {
+  padding: 0.5rem;
+  background: var(--button-background-color);
+  color: white;
+  width: var(--button-width);
+  height: var(--button-height);
+  font-size: 1.2rem;
+  border: 2px solid black;
+}
