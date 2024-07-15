@@ -1,4 +1,5 @@
 const button = document.querySelector('.button')
+const body = document.querySelector('body')
 
 button.addEventListener('click', (event) => {
   alert('Smart one!')
@@ -9,10 +10,10 @@ button.addEventListener('click', (event) => {
 const buttonSizePosition = button.getBoundingClientRect()
 console.log(buttonSizePosition)
 
-const windowSizePosition = button.getBoundingClientRect()
+const windowSizePosition = body.getBoundingClientRect()
 
 // Offset value distance from button's sides (not including button's size) where button will start moving
-const offset = 100
+const offset = 50
 
 // Offset distance between button center and pointer(includes button's size)
 const xButtonOffset = buttonSizePosition.width / 2 + offset
@@ -45,13 +46,33 @@ document.addEventListener('mousemove', (event) => {
   // need absolute to turn negative distance to positive, because X and Y is based on top left corner of screen, when 2 things subtract, depending on the order, you can get negative value.
   if (Math.abs(xDistMToB) <= xButtonOffset) {
     button.style.left = `${
-      buttonSizePosition.left - (xButtonOffset / xDistMToB) * 10
+      buttonSizePosition.left - (xButtonOffset / xDistMToB) * 5
     }px`
   }
   if (Math.abs(yDistMToB) <= yButtonOffset) {
     button.style.top = `${
-      buttonSizePosition.top - (yButtonOffset / yDistMToB) * 10
+      buttonSizePosition.top - (yButtonOffset / yDistMToB) * 5
     }px`
+  }
+
+  if (getDistance(buttonSizePosition.right, windowSizePosition.right) >= 0) {
+    button.style.left = `${windowSizePosition.left + xButtonOffset * 5}px`
+  }
+  if (getDistance(buttonSizePosition.left, windowSizePosition.left) <= 0) {
+    console.log('test')
+    button.style.left = `${
+      windowSizePosition.right - buttonSizePosition.width - xButtonOffset * 5
+    }px`
+  }
+
+  if (getDistance(buttonSizePosition.top, windowSizePosition.top) <= 0) {
+    button.style.top = `${
+      windowSizePosition.bottom - buttonSizePosition.height - yButtonOffset * 5
+    }px`
+  }
+
+  if (getDistance(buttonSizePosition.bottom, windowSizePosition.bottom) >= 0) {
+    button.style.top = `${windowSizePosition.top + yButtonOffset * 5}px`
   }
 })
 
