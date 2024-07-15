@@ -1,0 +1,2 @@
+*,:before,:after{box-sizing:border-box;margin:0;padding:0}:root{--button-background-color:linear-gradient(to right,#ff0084,#bb00ef);--button-width:200px;--button-height:50px;--body-background-color:#80808033}body{background:var(--body-background-color);justify-content:center;align-items:center;width:100vw;height:100vh;display:flex;overflow:hidden}.button{background:var(--button-background-color);color:#fff;width:var(--button-width);height:var(--button-height);border:none;padding:.5rem;font-size:1.2rem;position:absolute}
+/*# sourceMappingURL=index.b3c87179.css.map */
