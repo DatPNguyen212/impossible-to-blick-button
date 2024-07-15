@@ -1,0 +1,14 @@
+{
+  "name": "impossible-to-click-button",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
